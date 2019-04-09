@@ -29,6 +29,7 @@ pipeline {
         stage('Artifacts Test'){
             steps{
                 archiveArtifacts 'test.txt'
+                archiveArtifacts 'test.html'
             }
         }
     }
