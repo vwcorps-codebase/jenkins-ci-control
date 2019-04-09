@@ -8,7 +8,7 @@ def node_details() {
 // end - Auxiliary fuctions
 
 pipeline {
-    agent none
+    agent any
 
     options {
         buildDiscarder(logRotator(numToKeepStr: '10'))
@@ -20,7 +20,6 @@ pipeline {
 
     stages {
         stage('init x86_64') {
-            agent any
             steps {
                 script {
                     node_details()
@@ -28,7 +27,6 @@ pipeline {
             }
         }
         stage('Artifacts Test'){
-            agent any
             steps{
                 archiveArtifacts 'test.txt'
             }
